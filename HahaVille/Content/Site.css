@@ -1,0 +1,136 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*Start Added My Part*/
+
+@media screen and (min-width: 768px) {
+    .game-list li {
+        position: relative;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 40px;
+        padding-left: 20px;
+        width: 25%;
+       
+        /*height: 150px;*/
+    }
+
+    .game-list-frame img {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+    .game-list li {
+        position: relative;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 40px;
+        padding-left: 20px;
+        width: 25%;
+        /*height: 250px;*/
+          text-align: center;
+    }
+
+    /*.game-list-frame {
+        text-align: center;
+    }*/
+
+        .game-list-frame img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+}
+
+@media only screen and (max-device-width: 480px) {
+    .game-list li {
+        position: relative;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 40px;
+        padding-left: 20px;
+        height: 150px;
+        text-align: center;
+        /*width: 50px;*/
+    }
+
+    .game-list-frame {
+        text-align: center;
+    }
+
+        .game-list-frame img {
+            width: 35%;
+            height: auto;
+            max-height: 100%;
+        }
+}
+
+
+.game-list {
+    padding-left: 0px;
+    list-style: outside none none;
+}
+
+    .game-list:before, .game-list:after {
+        content: " ";
+        display: table;
+    }
+
+    .game-list:after {
+        clear: both;
+    }
+
+
+
+.game-list-frame {
+    /*height:155px;*/
+}
+
+
+
+
+
+/*End added my part*/

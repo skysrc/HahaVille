@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HahaVille.Tests/obj/Debug
+/HahaVille/obj/Debug
+/HahaVille/bin
+/HahaVille.Tests/bin/Debug
+/packages

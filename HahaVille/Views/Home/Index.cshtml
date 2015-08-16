@@ -1,0 +1,253 @@
+﻿@model IEnumerable<HahaVille.Models.Game>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">A Basic Panel</div>
+</div>
+
+
+<div class="row">
+    @{ var nCount = 0; }
+    @for (var i = 0; i < Model.Count(); i++)
+    {
+        nCount++;
+        if (nCount % 3 == 0)
+        {
+            nCount = 0;
+            @Html.Raw("<li><a class=\'thumbnail\'><div class=\'game-list-frame\'><img src=\'/Content/img/bubbles.jpg\'/></div></a></li></ul>");
+        }
+        else if (nCount% 3 == 1)
+        {  
+            if(nCount+1 >=  Model.Count())
+            {
+                @Html.Raw("<ul class=\"game-list\"><li><a class=\"thumbnail\"><div class=\"game-list-frame\"><img src=\"/Content/img/bubbles.jpg\" /></div></a></li></ul>");
+            }
+            else
+            {
+                @Html.Raw("<ul class=\"game-list\"><li><a class=\"thumbnail\"><div class=\"game-list-frame\"><img src=\"/Content/img/bubbles.jpg\" /></div></a></li>");
+            }
+        }
+        else
+        {
+            if (nCount + 1 >= Model.Count())
+            { 
+                 @Html.Raw("<li><a class=\"thumbnail\"><div class=\"game-list-frame\"><img src=\"/Content/img/bubbles.jpg\" /></div></a></li></ul>");
+            }
+            else
+            {
+                @Html.Raw("<li><a class=\"thumbnail\"><div class=\"game-list-frame\"><img src=\"/Content/img/bubbles.jpg\" /></div></a></li>");
+            }
+        }
+    }
+
+                    @*<div class="col-md-12">
+                            <div>
+                                <ul class="game-list">
+                                    <li>
+                                        <a class="thumbnail" >
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="game-list">
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>*@
+
+
+                    @*<div class="col-md-4">
+                            <div>
+                                <ul class="game-list">
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div>
+                                <ul class="game-list">
+                                    <li>
+                                        <a class="thumbnail">
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>*@
+                    @*<div class="col-md-12">
+                            <div>
+                                <ul class="game-list">
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div>
+                                <ul class="game-list">
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame ">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <div class="game-list-frame">
+                                                <img src="~/Content/img/bubbles.jpg" />
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>*@
+
+                    @*<div class="col-md-3">
+                            <h2>Get more libraries</h2>
+                            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Web Hosting</h2>
+                            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Web Hosting2</h2>
+                            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                        </div>*@
+                </div>
+
+                @*<div class="col-md-3 column margintop20">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Home</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 1</a></li>
+                            <li><a href="#" class="active2"><span class="glyphicon glyphicon-chevron-right"></span> Option 2 (active)</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 3</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 4</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span> Option 5</a></li>
+                        </ul>
+                    </div>*@
+
