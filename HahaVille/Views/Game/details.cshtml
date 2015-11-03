@@ -1,0 +1,24 @@
+﻿@model HahaVille.Models.Game
+@{
+    ViewBag.Title = "Game Details";
+}
+
+<section style="margin-top:30px;text-align: center;">
+    <div style="margin: 0px auto;">
+        <div id="gameImage"style="max-width: 932px;margin: 0px auto;">
+            <img src=@Model.Thumbnail style='width:50%;object-fit: contain' />
+        </div>
+        <div id="gameTitle" style="max-width: 600px;margin: 0px auto;">
+            <h2>Bubles Game</h2>
+            <p>
+                View a diff of your uncommitted changes, and form the perfect commit
+                by selecting the files—or even the specific lines—that make up a
+                change. Enter the summary and description, then commit.
+            </p>
+            <a href="/forum" class="btn btn-success btn-block">PLAY</a>
+            <p>@Model.Thumbnail</p>
+        </div>
+    </div>
+   
+</section>
+

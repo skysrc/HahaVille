@@ -51,7 +51,6 @@ input[type="checkbox"].input-validation-error {
         margin-top: 40px;
         padding-left: 20px;
         width: 25%;
-       
         /*height: 150px;*/
     }
 
@@ -71,18 +70,18 @@ input[type="checkbox"].input-validation-error {
         padding-left: 20px;
         width: 25%;
         /*height: 250px;*/
-          text-align: center;
+        text-align: center;
     }
 
     /*.game-list-frame {
         text-align: center;
     }*/
 
-        .game-list-frame img {
-            width: 100%;
-            height: auto;
-            max-height: 100%;
-        }
+    .game-list-frame img {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
 }
 
 @media only screen and (max-device-width: 480px) {
@@ -134,3 +133,53 @@ input[type="checkbox"].input-validation-error {
 
 
 /*End added my part*/
+
+/*Start with Bootstrap UI*/
+.hvgames {
+    margin-bottom: 30px;
+}
+
+#game header {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+#game .icon {
+    left: 10px;
+    top: 20px;
+    box-sizing: border-box;
+    width: 20%;
+    border: 3px solid #FFF;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    /*position: absolute;*/
+}
+
+div.holder + img {
+    display: block;
+    max-width: 100%;
+    border: medium none;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.holder {
+    display: block;
+    height: 0px;
+    width: 100%;
+    margin-bottom: 100%;
+}
+
+#gameicon {
+    height:304px;
+    width:240px;
+    border: 7px solid rgba(0,0,0,.5);
+    background-image:url('//eofdreams.com/data_images/dreams/image/image-07.jpg');
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+
+/*End with Bootstrap UI*/

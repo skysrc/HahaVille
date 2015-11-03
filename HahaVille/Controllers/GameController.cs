@@ -1,39 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using System.Web;
+using System.Web.Mvc;
+using HahaVille.Models;
+using HahaVille.DAL;
 
 namespace HahaVille.Controllers
 {
-    public class GameController : ApiController
+    public class GameController : Controller
     {
-        // GET api/game
-        public IEnumerable<string> Get()
+        public ActionResult Details(string name)
         {
-            return new string[] { "value1", "value2" };
+            int nGameId = 0;
+            List<Game> listOfGames = null;
+            if (int.TryParse(name, out nGameId))
+            {
+                HahaVilleContext db = new HahaVilleContext();
+                listOfGames = (from g in db.Games where g.Id == nGameId select g).ToList();
+            }
+
+            if (listOfGames != null && listOfGames.Count() > 0)
+            {
+                return View(listOfGames[0]);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
-        // GET api/game/5
-        public string Get(int id)
+        public ActionResult Play(string name)
         {
-            return "value";
-        }
+            int nGameId = 0;
+            List<Game> listOfGames = null;
+            if (int.TryParse(name, out nGameId))
+            {
+                HahaVilleContext db = new HahaVilleContext();
+                listOfGames = (from g in db.Games where g.Id == nGameId select g).ToList();
+            }
 
-        // POST api/game
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/game/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/game/5
-        public void Delete(int id)
-        {
+            if (listOfGames != null && listOfGames.Count() > 0)
+            {
+                return View(listOfGames[0]);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+          
         }
     }
 }
