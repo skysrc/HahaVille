@@ -14,6 +14,7 @@ namespace HahaVille.Models
         public string LocaleKey { get; set; }
         public string LocaleValue { get; set; }
         public virtual Language Language { get; set; }
+        public virtual Game Game { get; set; }
 
     }
 }

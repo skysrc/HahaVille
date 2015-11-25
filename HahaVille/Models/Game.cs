@@ -15,6 +15,6 @@ namespace HahaVille.Models
         public int CategoryId { get; set; }
         public int TotalPlayed { get; set; }
         public virtual Category Category { get; set; }
-
+        public virtual ICollection<LocalizedProperty> LocalizedProperties { get; set; }
     }
 }
