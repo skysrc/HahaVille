@@ -70,16 +70,16 @@ namespace HahaVille.Controllers
         public ActionResult Play(string name)
         {
             int nGameId = 0;
-            List<Game> listOfGames = null;
+            Game objGame = null;
             if (int.TryParse(name, out nGameId))
             {
                 HahaVilleContext db = new HahaVilleContext();
-                listOfGames = (from g in db.Games where g.Id == nGameId select g).ToList();
+                objGame = (from g in db.Games where g.Id == nGameId select g).FirstOrDefault();
             }
 
-            if (listOfGames != null && listOfGames.Count() > 0)
+            if (objGame != null)
             {
-                return View(listOfGames[0]);
+                return View(objGame);
             }
             else
             {

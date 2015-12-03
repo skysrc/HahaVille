@@ -2,14 +2,14 @@
 @{
     ViewBag.Title = "Play";
 }
-<section style="margin-top:30px;text-align:center;">
-    @*<object type="application/x-shockwave-flash" data="http://www.addictinggames.com/newGames/action-games/supercar-road-trip/supercar-road-trip.swf"
-        width="550" height="400">*@
-  
-        <object type="application/x-shockwave-flash" data=@Model.GamePath
-                style=" min-width: 320px;min-height: 240px;width:550px;height:400px;">
-            <param name="movie" value="supercar-road-trip.swf" />
-            <param name="quality" value="high" />
-        </object>
-   
+<section id="swfSec">
+    <div id="hvGame" style="width:100%;height:90%">
+        <p>Alternative content</p>
+    </div>
+    <input type="hidden" id='hfGamePath' data-game-path='@Model.GamePath' />
 </section>
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/swfobject.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/game.js")"></script>
+}
