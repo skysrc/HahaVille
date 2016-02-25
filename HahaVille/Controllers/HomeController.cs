@@ -51,7 +51,7 @@ namespace HahaVille.Controllers
 
                         objGI.Name = lpName != null ? lpName.LocaleValue : string.Empty;
                         objGI.Title = lpTitle != null ? lpTitle.LocaleValue : string.Empty;
-                        objGI.Description = lpDesc != null ? lpDesc.LocaleValue : string.Empty;
+                        objGI.Description = lpDesc != null ? StringHtmlExtensions.TruncateHtml(lpDesc.LocaleValue, 90, "... <br /> <a href=\"games/" + game.Id + "\" >(View Details)</a>") : string.Empty;
                         objGI.Keyword = lpKeyword != null ? lpKeyword.LocaleValue : string.Empty;
                         objGI.CategoryName = lpCatName != null ? lpCatName.LocaleValue : category.Name;
 
