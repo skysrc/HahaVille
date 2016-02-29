@@ -11,7 +11,7 @@
     {
         <div class="col-md-3 col-sm-6 hvgames">
             <div class="thumbnail">
-                <a target="_blank" href="http://play.famobi.com/smarty-bubbles#_ga=1.247158660.1215146575.1444150061">
+                <a href="@("/games/" + game.Name.Replace(" ", "-"))">
                     <img width="180" height="180" src='@(game.Thumbnail)' />
                 </a>
                 <div class="caption">
@@ -19,7 +19,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>
@@ -33,7 +33,7 @@
 
         <div class="col-md-3 col-sm-6 hvgames">
             <div class="thumbnail">
-                <a href="#">
+                <a href="@("/games/" + game.Name.Replace(" ", "-"))">
                     <img width="180" height="180" src='@(game.Thumbnail)' />
                 </a>
                 <div class="caption">
@@ -41,7 +41,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>
@@ -51,7 +51,7 @@
     {
         <div class="col-md-3 col-sm-6 hvgames">
             <div class="thumbnail">
-                <a href="#">
+                <a href="@("/games/" + game.Name.Replace(" ", "-"))">
                     <img width="180" height="180" src='@(game.Thumbnail)' />
                 </a>
                 <div class="caption">
@@ -59,7 +59,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>
@@ -69,7 +69,7 @@
     {
         <div class="col-md-3 col-sm-6 hvgames">
             <div class="thumbnail">
-                <a href="#">
+                <a href="@("/games/" + game.Name.Replace(" ", "-"))">
                     <img width="180" height="180" src='@(game.Thumbnail)' />
                 </a>
                 <div class="caption">
@@ -77,7 +77,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>

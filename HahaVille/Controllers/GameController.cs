@@ -127,7 +127,7 @@ namespace HahaVille.Controllers
                                 objGI.Title = p.LocaleValue;
                                 break;
                             case "game.desc":
-                                objGI.Description = StringHtmlExtensions.TruncateHtml(p.LocaleValue, 90, "... <br /> <a href=\"games/" + objGI.Id + "\" >(View Details)</a>");
+                                objGI.Description = StringHtmlExtensions.TruncateHtml(p.LocaleValue, 90, "... <br /> <a href=\"/games/" + objGI.Name.Replace(" ","-") + "\" >(View Details)</a>");
                                 break;
                             case "game.metakeyword":
                                 objGI.Keyword = p.LocaleValue;
