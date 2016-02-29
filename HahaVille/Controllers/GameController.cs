@@ -12,13 +12,13 @@ namespace HahaVille.Controllers
     {
         public ActionResult Details(string name)
         {
-            int nGameId = 0;
+            //int nGameId = 0;
             GameInfo objGI = null;
-            if (int.TryParse(name, out nGameId))
-            {
+            //if (int.TryParse(name, out nGameId))
+            //{
                 HahaVilleContext db = new HahaVilleContext();
                 var objTargetGame = (from g in db.Games
-                                     where g.Id == nGameId
+                                     where g.Name == name.Replace("-"," ")
                                      select new
                                      {
                                          Id = g.Id,
@@ -55,7 +55,7 @@ namespace HahaVille.Controllers
 
                     }
                 }
-            }
+            //}
 
             if (objGI != null)
             {
@@ -71,11 +71,11 @@ namespace HahaVille.Controllers
         {
             int nGameId = 0;
             Game objGame = null;
-            if (int.TryParse(name, out nGameId))
-            {
+            //if (int.TryParse(name, out nGameId))
+            //{
                 HahaVilleContext db = new HahaVilleContext();
-                objGame = (from g in db.Games where g.Id == nGameId select g).FirstOrDefault();
-            }
+                objGame = (from g in db.Games where g.Name == name.Replace("-"," ") select g).FirstOrDefault();
+            //}
 
             if (objGame != null)
             {

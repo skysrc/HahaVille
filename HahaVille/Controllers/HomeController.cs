@@ -51,7 +51,7 @@ namespace HahaVille.Controllers
 
                         objGI.Name = lpName != null ? lpName.LocaleValue : string.Empty;
                         objGI.Title = lpTitle != null ? lpTitle.LocaleValue : string.Empty;
-                        objGI.Description = lpDesc != null ? StringHtmlExtensions.TruncateHtml(lpDesc.LocaleValue, 90, "... <br /> <a href=\"games/" + game.Id + "\" >(View Details)</a>") : string.Empty;
+                        objGI.Description = lpDesc != null ? StringHtmlExtensions.TruncateHtml(lpDesc.LocaleValue, 90, "... <br /> <a href=\"games/" + game.Name.Replace(" ","-") + "\" >(View Details)</a>") : string.Empty;
                         objGI.Keyword = lpKeyword != null ? lpKeyword.LocaleValue : string.Empty;
                         objGI.CategoryName = lpCatName != null ? lpCatName.LocaleValue : category.Name;
 
@@ -68,14 +68,13 @@ namespace HahaVille.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "HahaVille Mini Games";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
 
             return View();
         }

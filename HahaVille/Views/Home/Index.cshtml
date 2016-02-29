@@ -10,71 +10,6 @@
     <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
 
-
-
-@*<div class="row text-center">
-    <div class="col-md-3 col-sm-6">
-        <div class="thumbnail">
-            <a href="#">
-                <img width="180" height="180" src="/content/img/bubbles.jpg" />
-            </a>
-            <div class="caption">
-                <h3>Forum</h3>
-                <p>A simple fluxBB powered forum for site discussion. Feel free to sign up and post.</p>
-                <p>
-                    <br>
-                    <a href="/forum" class="btn btn-success btn-block">PLAY</a> 
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6 jwfeature">
-        <div class="thumbnail">
-            <a href="#">
-                <img width="180" height="180" src="/content/img/bubbles.jpg" />
-            </a>
-            <div class="caption">
-                <h3>Forum</h3>
-                <p>A simple fluxBB powered forum for site discussion. Feel free to sign up and post.</p>
-                <p>
-                    <br>
-                    <a href="/forum" class="btn btn-success btn-block">PLAY</a> 
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6 jwfeature">
-        <div class="thumbnail">
-            <a href="#">
-                <img width="180" height="180" src="/content/img/bubbles.jpg" />
-            </a>
-            <div class="caption">
-                <h3>Forum</h3>
-                <p>A simple fluxBB powered forum for site discussion. Feel free to sign up and post.</p>
-                <p>
-                    <br>
-                    <a href="/forum" class="btn btn-success btn-block">PLAY</a> 
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6 jwfeature">
-        <div class="thumbnail">
-            <a href="#">
-                <img width="180" height="180" src="/content/img/bubbles.jpg" />
-            </a>
-            <div class="caption">
-                <h3>Forum</h3>
-                <p>A simple fluxBB powered forum for site discussion. Feel free to sign up and post.</p>
-                <p>
-                    <br>
-                    <a href="/forum" class="btn btn-success btn-block">PLAY</a> 
-                </p>
-            </div>
-        </div>
-    </div>
-</div>*@
-
 @{ var nCount = 0;}
 @foreach (var game in Model.OrderBy(x=>x.CategoryId).ThenBy(x=>x.Id))
 {
@@ -91,7 +26,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>
@@ -113,7 +48,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>
@@ -131,7 +66,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ","-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>
@@ -149,7 +84,7 @@
                     <p>@Html.Raw(game.Description)</p>
                     <p>
                         <br>
-                        <a href="@("/games/" + game.Id)" class="btn btn-success btn-block">PLAY</a>
+                        <a href="@("/games/" + game.Name.Replace(" ", "-"))" class="btn btn-success btn-block">PLAY</a>
                     </p>
                 </div>
             </div>

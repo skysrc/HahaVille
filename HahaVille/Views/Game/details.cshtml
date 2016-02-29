@@ -13,7 +13,7 @@
             <p>
               @Html.Raw(Model.Description)
             </p>
-            <a href="@("/games/play/" + Model.Id)" class="btn btn-success btn-block">PLAY</a>
+            <a href="@("/games/play/" + Model.Name.Replace(" ","-"))" class="btn btn-success btn-block">PLAY</a>
         </div>
     </div>
    

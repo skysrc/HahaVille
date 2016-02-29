@@ -8,6 +8,7 @@ namespace HahaVille.Models
     public class Game
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string Thumbnail { get; set; }
         public string FbShareThumb { get; set; }
         public string GamePath { get; set; }
