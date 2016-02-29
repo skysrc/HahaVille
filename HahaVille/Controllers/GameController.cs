@@ -87,5 +87,63 @@ namespace HahaVille.Controllers
             }
 
         }
+
+        public ActionResult Category(string name)
+        {
+
+            HahaVilleContext db = new HahaVilleContext();
+            List<GameInfo> listOfGameInfo = (from c in db.Category
+                                             from g in c.Games
+                                             where c.Name == name
+                                             select new GameInfo
+                                             {
+                                                 Id = g.Id,
+                                                 LanguageId = 1,
+                                                 Thumbnail = g.Thumbnail,
+                                                 Uri = g.GamePath,
+                                                 CategoryId = c.Id,
+                                             }).ToList();
+
+            if (listOfGameInfo.Count > 0)
+            {
+                int[] arrOfGameIds = listOfGameInfo.Select(x => x.Id).ToArray();
+
+                List<LocalizedProperty> listOfLocalizedProps = (from props in db.LocalizedProperties
+                                                                where arrOfGameIds.Contains(props.EntityId) &&
+                                                                      props.LanguageId == 1
+                                                                select props).ToList();
+
+                foreach (var objGI in listOfGameInfo)
+                {
+                    var prop = listOfLocalizedProps.Where(x => x.EntityId == objGI.Id);
+                    foreach (var p in prop)
+                    {
+                        switch (p.LocaleKey)
+                        {
+                            case "game.name":
+                                objGI.Name = p.LocaleValue;
+                                break;
+                            case "game.metatitle":
+                                objGI.Title = p.LocaleValue;
+                                break;
+                            case "game.desc":
+                                objGI.Description = StringHtmlExtensions.TruncateHtml(p.LocaleValue, 90, "... <br /> <a href=\"games/" + objGI.Id + "\" >(View Details)</a>");
+                                break;
+                            case "game.metakeyword":
+                                objGI.Keyword = p.LocaleValue;
+                                break;
+                            case "category.name":
+                                objGI.CategoryName = p.LocaleValue;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+           
+            return View(listOfGameInfo);
+
+        }
     }
 }
