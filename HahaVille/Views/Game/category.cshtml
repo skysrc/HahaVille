@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Category";
 }
-
 <div class="row">
+   
     @{ var nCount = 0;
        var nTotalGames = Model.Count();
        }
@@ -31,7 +31,6 @@
         }
         else if (nCount % 4 == 1)
         {
-            @Html.Raw("<h3>" + game.CategoryName + "</h3>")
             @Html.Raw("<div class='row text-center'>")
 
             <div class="col-md-3 col-sm-6 hvgames">
