@@ -78,5 +78,16 @@ namespace HahaVille.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Search(string query)
+        {
+            string someQ = query;
+
+            SearchResult srResults = new SearchResult();
+            srResults.ResultCount = 5;
+            srResults.Keywords = query;
+            return View("Search", "_Layout2", srResults);
+        }
     }
 }

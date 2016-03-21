@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - Free HTML5 Games</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("CSS", required: false)
 
 </head>
 <body>
@@ -37,9 +38,9 @@
                 </ul>
                
                 <div class="span12">
-                    <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                    <form id="custom-search-form" class="form-search form-horizontal pull-right" method="post" action="@Url.Action("Search", "Home")">
                         <div class="">
-                            <input type="text" class="search-query " placeholder="Search">
+                            <input type="text" name="query" class="search-query " placeholder="Search">
                             <button type="submit" class="btn"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
                     </form>
@@ -88,7 +89,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("JavaScript", required: false)
-    @RenderSection("CSS", required: false)
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 </body>
 </html>
