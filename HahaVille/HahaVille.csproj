@@ -189,6 +189,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CustomPrincipalSerializeModel.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Models\GameInfo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Language.cs" />
@@ -202,6 +203,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\bubbles.jpg" />
+    <Content Include="Content\search.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -251,6 +253,8 @@
     <Content Include="Views\Game\details.cshtml" />
     <Content Include="Views\Game\play.cshtml" />
     <Content Include="Views\Game\category.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
