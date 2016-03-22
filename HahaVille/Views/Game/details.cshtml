@@ -1,12 +1,28 @@
 ﻿@model HahaVille.Models.GameInfo
 @{
-    ViewBag.Title = "Game Details";
+    ViewBag.Title = "Game Details :" + Model.Title;
+    ViewBag.Description = "Game Details :" + StringHtmlExtensions.TruncateHtml(Model.Description,150);
+    ViewBag.Keyword = Model.Keyword;
+    ViewBag.ImageURL = Model.Thumbnail;
+    ViewBag.PageURL = Url.AbsoluteContent("/games/details/" + Model.Name.Replace(" ", "-"));
 }
 
 <section style="margin-top:30px;text-align: center;">
     <div style="margin: 0px auto;">
         <div id="gameImage"style="max-width: 932px;margin: 0px auto;">
-            <img src=@Model.Thumbnail style='width:50%;object-fit: contain' />
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Responsive - Game Details -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7913107103038018"
+                 data-ad-slot="7966535587"
+                 data-ad-format="auto"></ins>
+            <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div><br />
+        <div id="gameImage" style="max-width: 466px;margin: 0px auto;">
+            <img src=@Model.Thumbnail style='width:25%;object-fit: contain' />
         </div>
         <div id="gameTitle" style="max-width: 600px;margin: 0px auto;">
             <h2>@Model.Name</h2>

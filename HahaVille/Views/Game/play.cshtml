@@ -1,12 +1,29 @@
-﻿@model HahaVille.Models.Game
+﻿@model HahaVille.Models.GameInfo
 @{
-    ViewBag.Title = "Play";
+    ViewBag.Title = "Play Mini Game:" + Model.Title;
+    ViewBag.Description = "Play Mini Game:" + StringHtmlExtensions.TruncateHtml(Model.Description, 150);
+    ViewBag.Keyword = "Play " + Model.Name + " Mini Game,Play HTML5 " + Model.Name + " Game,Play Flash " + Model.Name + " Game,Play " + Model.Name + " Mobile Game";
+    ViewBag.ImageURL = Model.Thumbnail;
+    ViewBag.PageURL = Url.AbsoluteContent("/games/play/" + Model.Name.Replace(" ", "-"));
 }
+@Html.Raw("<h3>" + Model.Name + " Games</h3>")
+<div id="gameImage" style="max-width: 932px;margin: 0px auto;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Responsive - Game Details -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7913107103038018"
+         data-ad-slot="7966535587"
+         data-ad-format="auto"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div><br />
 <section id="swfSec">
     <div id="hvGame" style="width:100%;height:90%">
         <p>Alternative content</p>
     </div>
-    <input type="hidden" id='hfGamePath' data-game-path='@Model.GamePath' />
+    <input type="hidden" id='hfGamePath' data-game-path='@Model.Uri' />
     <input type="hidden" id='hfHtml5' data-ishtml5='@Model.IsHtml5' />
 </section>
 @section JavaScript

@@ -1,14 +1,29 @@
 ﻿@model IEnumerable<HahaVille.Models.GameInfo>
 
 @{
-    ViewBag.Title = "HahaVille";
+    ViewBag.Title = "HahaVille Mini HTML5 / Flash Games";
+    ViewBag.Description = "The best portal of Mini Games website, included Shooting Games, Adventure Games, Girls Games, Arcade Games, Puzzle Games, Sport Games";
+    ViewBag.Keyword = "Mini Games, Flash Games, HTML5 Games, Mobile Games, Hahaville Mini Games";
+    ViewBag.ImageURL = Url.AbsoluteContent("/favicon.ico"); 
+    ViewBag.PageURL = "www.hahaville.com";
 }
+
 
 <div class="row">
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
+        @*<h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>*@
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive Home Leaderboard -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7913107103038018"
+             data-ad-slot="3675936786"
+             data-ad-format="auto"></ins>
+        <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     @{ var nCount = 0;}
@@ -36,7 +51,7 @@
         }
         else if (nCount % 4 == 1)
         {
-            @Html.Raw("<h3>" + game.CategoryName + "</h3>")
+            @Html.Raw("<h3>" + game.CategoryName + " Games</h3>")
             @Html.Raw("<div class='row text-center'>")
 
             <div class="col-md-3 col-sm-6 hvgames">

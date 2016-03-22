@@ -36,7 +36,7 @@ namespace HahaVille.Controllers
                     LanguageId = 1,
                     CategoryId = objTargetGame.CategoryId,
                     Thumbnail = objTargetGame.Thumbnail,
-                    Uri = objTargetGame.Uri
+                    Uri = objTargetGame.Uri,
                 };
 
                 if (objTargetGame.Props != null && objTargetGame.Props.Count > 0)
@@ -70,16 +70,55 @@ namespace HahaVille.Controllers
         public ActionResult Play(string name)
         {
             int nGameId = 0;
-            Game objGame = null;
+            GameInfo objGI = null;
             //if (int.TryParse(name, out nGameId))
             //{
             HahaVilleContext db = new HahaVilleContext();
-            objGame = (from g in db.Games where g.Name == name.Replace("-", " ") select g).FirstOrDefault();
+            var objTargetGame = (from g in db.Games
+                                 where g.Name == name.Replace("-", " ")
+                                 select new
+                                 {
+                                     Id = g.Id,
+                                     Thumbnail = g.Thumbnail,
+                                     Uri = g.GamePath,
+                                     CategoryId = g.CategoryId,
+                                     IsHtml5 = g.IsHtml5,
+                                     Props = g.LocalizedProperties,
+                                 }).FirstOrDefault();
+
+            if (objTargetGame != null)
+            {
+                objGI = new GameInfo()
+                {
+                    Id = objTargetGame.Id,
+                    LanguageId = 1,
+                    CategoryId = objTargetGame.CategoryId,
+                    Thumbnail = objTargetGame.Thumbnail,
+                    Uri = objTargetGame.Uri,
+                    IsHtml5 = objTargetGame.IsHtml5
+                };
+
+                if (objTargetGame.Props != null && objTargetGame.Props.Count > 0)
+                {
+                    LocalizedProperty lpName = objTargetGame.Props.Where(x => x.LocaleKey.Equals("game.name")).FirstOrDefault();
+                    LocalizedProperty lpTitle = objTargetGame.Props.Where(x => x.LocaleKey.Equals("game.metatitle")).FirstOrDefault();
+                    LocalizedProperty lpDesc = objTargetGame.Props.Where(x => x.LocaleKey.Equals("game.desc")).FirstOrDefault();
+                    LocalizedProperty lpKeyword = objTargetGame.Props.Where(x => x.LocaleKey.Equals("game.metakeyword")).FirstOrDefault();
+                    LocalizedProperty lpCatName = objTargetGame.Props.Where(x => x.LocaleKey.Equals("category.name")).FirstOrDefault();
+
+                    objGI.Name = lpName != null ? lpName.LocaleValue : string.Empty;
+                    objGI.Title = lpTitle != null ? lpTitle.LocaleValue : string.Empty;
+                    objGI.Description = lpDesc != null ? lpDesc.LocaleValue : string.Empty;
+                    objGI.Keyword = lpKeyword != null ? lpKeyword.LocaleValue : string.Empty;
+                    objGI.CategoryName = lpCatName != null ? lpCatName.LocaleValue : string.Empty;
+
+                }
+            }
             //}
 
-            if (objGame != null)
+            if (objGI != null)
             {
-                return View(objGame);
+                return View(objGI);
             }
             else
             {
@@ -108,16 +147,41 @@ namespace HahaVille.Controllers
 
             if (listOfGameInfo.Count > 0)
             {
-                int[] arrOfGameIds = listOfGameInfo.Select(x => x.Id).ToArray();
+                int categoryID = listOfGameInfo.Select(x => x.CategoryId).FirstOrDefault();
 
-                List<LocalizedProperty> listOfLocalizedProps = (from props in db.LocalizedProperties
+                int[] arrOfGameIds = listOfGameInfo.Select(x => x.Id).ToArray();
+                List<LocalizedProperty> listOfCategoryLocalizedProps = (from props in db.LocalizedProperties
+                                                                where props.EntityId == categoryID &&
+                                                                      props.LanguageId == 1
+                                                                select props).ToList();
+
+                foreach (var p in listOfCategoryLocalizedProps)
+                {
+                    switch (p.LocaleKey)
+                    {
+                        case "category.name":
+                            ViewBag.Name = p.LocaleValue;
+                            break;
+                        case "category.metatitle":
+                            ViewBag.metatitle = p.LocaleValue;
+                            break;
+                        case "category.metakeyword":
+                            ViewBag.metakeyword = p.LocaleValue;
+                            break;
+                        case "category.metadesc":
+                            ViewBag.metadesc = p.LocaleValue;
+                            break;
+                    }
+                }
+
+                List<LocalizedProperty> listOfGamesLocalizedProps = (from props in db.LocalizedProperties
                                                                 where arrOfGameIds.Contains(props.EntityId) &&
                                                                       props.LanguageId == 1
                                                                 select props).ToList();
 
                 foreach (var objGI in listOfGameInfo)
                 {
-                    var prop = listOfLocalizedProps.Where(x => x.EntityId == objGI.Id);
+                    var prop = listOfGamesLocalizedProps.Where(x => x.EntityId == objGI.Id);
                     foreach (var p in prop)
                     {
                         switch (p.LocaleKey)
@@ -131,9 +195,9 @@ namespace HahaVille.Controllers
                             case "game.desc":
                                 objGI.Description = StringHtmlExtensions.TruncateHtml(p.LocaleValue, 90, "... <br /> <a href=\"/games/" + objGI.Name.Replace(" ", "-") + "\" >(View Details)</a>");
                                 break;
-                            case "game.metakeyword":
-                                objGI.Keyword = p.LocaleValue;
-                                break;
+                            //case "game.metakeyword":
+                            //    objGI.Keyword = p.LocaleValue;
+                            //    break;
                             //case "category.name":
                             //    objGI.CategoryName = p.LocaleValue;
                             //    break;

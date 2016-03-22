@@ -17,6 +17,6 @@ namespace HahaVille.Models
         public int LanguageId { get; set; }
         public string Uri { get; set; }
         public string Thumbnail { get; set; }
-      
+        public Boolean IsHtml5 { get; set; }
     }
 }

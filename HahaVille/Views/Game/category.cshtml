@@ -1,12 +1,32 @@
 ﻿@model IEnumerable<HahaVille.Models.GameInfo>
 @{
-    ViewBag.Title = "Category";
+    ViewBag.Title = ViewBag.metatitle;
+    ViewBag.Description = ViewBag.metadesc;
+    ViewBag.Keyword = ViewBag.metakeyword;
+    ViewBag.ImageURL = Url.AbsoluteContent("/favicon.ico"); 
+    string categoryname = ViewBag.Name;
+    ViewBag.PageURL = Url.AbsoluteContent("/games/category/" + categoryname.Replace(" ", "-"));
 }
 <div class="row">
    
     @{ var nCount = 0;
        var nTotalGames = Model.Count();
        }
+    @Html.Raw("<h3>" + ViewBag.Name + " Games</h3>")
+    <div id="gameImage" style="max-width: 932px;margin: 0px auto;">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Responsive - Game Details -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-7913107103038018"
+             data-ad-slot="7966535587"
+             data-ad-format="auto"></ins>
+        <script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div><br />
+
+
     @foreach (var game in Model.OrderBy(x => x.CategoryId).ThenBy(x => x.Id))
     {
         nCount++;
