@@ -185,13 +185,32 @@ div.holder + img {
 /*End with Bootstrap UI*/
 
 /*Search start*/
- #custom-search-form {
+   #cse-search-results iframe {
+    height:1860px; width:100%;
+}
+   .gsc-control-cse * {
+margin: 0;
+padding: 0;
+max-width: none !important;
+-webkit-box-shadow: none !important;
+-moz-box-shadow: none !important;
+box-shadow: none !important;
+-webkit-box-sizing: content-box;
+-moz-box-sizing: content-box;
+box-sizing: content-box;
+}
+   input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus, .gsc-search-button 
+{
+  box-sizing: content-box;
+  line-height: normal;
+}
+ #cse-search-box {
         margin:0;
         margin-top: 5px;
         padding: 0;
     }
  
-    #custom-search-form .search-query {
+    #cse-search-box .search-query {
         padding-right: 3px;
         padding-right: 4px \9;
         padding-left: 3px;
@@ -208,7 +227,7 @@ div.holder + img {
     transition: width  0.2s ease-in-out;
     }
  
-    #custom-search-form button {
+    #cse-search-box button {
         border: 0;
         background: none;
         /** belows styles are working good */

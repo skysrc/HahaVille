@@ -15,7 +15,6 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("CSS", required: false)
-
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -46,12 +45,24 @@
                 </ul>
                
                 <div class="span12">
-                    <form id="custom-search-form" class="form-search form-horizontal pull-right" method="post" action="@Url.Action("Search", "Home")">
+                    @*<form id="custom-search-form" class="form-search form-horizontal pull-right" method="post" action="@Url.Action("Search", "Home")">
                         <div class="">
                             <input type="text" name="query" class="search-query " placeholder="Search">
                             <button type="submit" class="btn"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
+                    </form>*@
+                    <form action="Home/Search" id="cse-search-box" class="form-search form-horizontal pull-right">
+                        <div>
+                            <input type="hidden" name="cx" value="partner-pub-7913107103038018:1883512380" />
+                            <input type="hidden" name="cof" value="FORID:10" />
+                            <input type="hidden" name="ie" value="UTF-8" />
+                            <input type="text" name="q" size="20" />
+                            <button type="submit" name="sa" value="Search"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
                     </form>
+
+                        <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
                 </div>
                
             </div>
