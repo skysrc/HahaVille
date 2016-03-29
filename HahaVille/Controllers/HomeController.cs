@@ -108,7 +108,7 @@ namespace HahaVille.Controllers
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("user-agent: *");
-            stringBuilder.AppendLine("disallow: /Flashgame/*");
+            stringBuilder.AppendLine("disallow: /FlashGame/*");
             stringBuilder.AppendLine("disallow: /GameLogo/*");
             //stringBuilder.AppendLine("allow: /error/foo");
             stringBuilder.Append("sitemap: ");
