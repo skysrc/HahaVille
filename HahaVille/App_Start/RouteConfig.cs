@@ -28,10 +28,25 @@ namespace HahaVille
              url: "games/{name}",
              defaults: new { controller = "Game", action = "Details", name = UrlParameter.Optional });
 
+
+            routes.MapRoute(
+           "Robots",
+           "robots.txt",
+           new { controller = "Home", action = "Robots" }
+           );
+
+            routes.MapRoute(
+           "Sitemap",
+           "sitemap.xml",
+           new { controller = "Home", action = "SiteMap" }
+           );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+
+           
         }
     }
 }

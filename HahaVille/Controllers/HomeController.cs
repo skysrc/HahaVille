@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 using HahaVille.Models;
 using HahaVille.DAL;
+using HahaVille.Helper;
+using System.Text;
 
 namespace HahaVille.Controllers
 {
+    //[RoutePrefix("")]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -92,6 +95,25 @@ namespace HahaVille.Controllers
         public ActionResult Search()
         {
             return View("Search", "_Layout2");
+        }
+         [OutputCache(Duration = 86400)]
+        public ActionResult SiteMap()
+        {
+            var sitemapNodes = SitemapHelper.GetSitemapNodes(this.Url);
+            string xml = SitemapHelper.GetSitemapDocument(sitemapNodes);
+            return this.Content(xml, System.Net.Mime.MediaTypeNames.Text.Xml, Encoding.UTF8);
+        }
+        [OutputCache(Duration = 86400)]
+        public ContentResult Robots()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("user-agent: *");
+            stringBuilder.AppendLine("disallow: /Flashgame/*");
+            stringBuilder.AppendLine("disallow: /GameLogo/*");
+            //stringBuilder.AppendLine("allow: /error/foo");
+            stringBuilder.Append("sitemap: ");
+            stringBuilder.AppendLine(this.Url.RouteUrl("SiteMap", null, this.Request.Url.Scheme).TrimEnd('/'));
+            return this.Content(stringBuilder.ToString(), "text/plain", Encoding.UTF8);
         }
     }
 }

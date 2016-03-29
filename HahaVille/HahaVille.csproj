@@ -183,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\SitemapHelper.cs" />
     <Compile Include="Helper\StringHtmlExtensions.cs" />
     <Compile Include="Helper\UrlExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\LocaleStringResource.cs" />
     <Compile Include="Models\LocalizedProperty.cs" />
+    <Compile Include="Models\SitemapNode.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -209,6 +211,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Hahaville Deployment.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\game.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -258,6 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\SitemapController\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
