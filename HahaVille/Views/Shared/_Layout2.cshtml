@@ -6,7 +6,6 @@
     <title>@ViewBag.Title - Free HTML5 Games</title>
     @Styles.Render("~/Content/css")
     @RenderSection("CSS", required: false)
-    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -42,8 +41,9 @@
     @RenderBody()
    
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("JavaScript", required: false)
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 </body>
